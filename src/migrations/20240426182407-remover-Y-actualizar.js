@@ -71,7 +71,7 @@ module.exports = {
      */
 
 
-    await queryInterface.addColumn("books", "authorsId",{
+    await queryInterface.removeColumn("books", "authorsId",{
       type: Sequelize.INTEGER,
       allowNull:false,
       references:{
