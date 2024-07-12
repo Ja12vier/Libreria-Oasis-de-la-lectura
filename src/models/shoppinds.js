@@ -54,6 +54,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false
 
     },
+    status:{
+      type: DataTypes.BOOLEAN,
+      defaultValue:true
+    },
+
     users_clientesId:{
       type: DataTypes.INTEGER,
       allowNull:false

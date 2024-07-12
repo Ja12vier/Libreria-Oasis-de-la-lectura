@@ -82,11 +82,10 @@ const updatePassword=catchError(async(req, res)=>{
 
 const {email, password, newPassword}=req.body;
 const buscarUsers= await users_clientes.findOne({where:{email}});
-console.log(buscarUsers);
 const id=buscarUsers.dataValues.id;
   
-const isValidPassword= await bcrypt.compare(password,buscarUsers.dataValues?.password)
-console.log(isValidPassword);
+const isValidPassword= await bcrypt.compare(password,buscarUsers.dataValues?.password);
+
 if(!isValidPassword){
 
     return  res.status(404).json({message: "There is no user with that password"})

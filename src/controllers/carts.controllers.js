@@ -2,14 +2,14 @@
 
 
 const catchError=require("../utils/catchError");
-const {carts, images, data_sheefs, genders, authors, bookshops, users_clientes}=require("../models");
+const {carts, images, data_sheefs, genders, authors, bookshops, users_clientes, books}=require("../models");
 const { raw } = require("express");
 
 
 const getAll=catchError(async(req, res)=>{
-    const users_clienteId= req.user.id;
+    const users_clientesId= req.user.id;
     const cart= await carts.findAll({
-        where:{users_clienteId},
+        where:{users_clientesId},
         include:[
             {model:books,  include:[{model:images}, {model:data_sheefs}, {model:genders}, {model:authors},  {model:bookshops}]},
             {model: users_clientes}

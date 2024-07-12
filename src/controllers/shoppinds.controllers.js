@@ -10,7 +10,7 @@ const getShoppinds=catchError(async(req, res)=>{
 const users_clientesId=req.user.id;
 
 const shoppind= await shoppinds.findAll({
-    where: {users_clientesId}
+    where: {users_clientesId, status:true}
 });
 
   return res.status(200).json({
@@ -19,6 +19,17 @@ const shoppind= await shoppinds.findAll({
     shoppind
   });
 });
+
+const getALLShoppinds=catchError(async(req, res)=>{
+const shoppind= await shoppinds.findAll();
+  
+    return res.status(200).json({
+      status:"sucess",
+      result:shoppind.length,
+      shoppind
+    });
+  });
+
 
 const createShoppinds=catchError(async(req, res)=>{
 try {
@@ -130,7 +141,9 @@ const shoppindCart=  await shoppinds.bulkCreate(cart,{transaction:t});
 const removeShoopinds=catchError(async(req,res)=>{
 const {id}=req.params;
 
-   await shoppinds.destroy({where:{id}});
+   await shoppinds.update({status:false},{where:{id}}
+    
+   );
 
    return res.status(404).json({
     message:`The purchase with the ID was deleted ${id}`
@@ -140,5 +153,6 @@ const {id}=req.params;
 module.exports={
     createShoppinds,
     removeShoopinds,
-    getShoppinds
+    getShoppinds,
+    getALLShoppinds
 };

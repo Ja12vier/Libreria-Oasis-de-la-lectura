@@ -220,7 +220,7 @@ const users=await users_clientes.findOne({
             {email:{[Op.or]:[email]}},
             {name_cliente: "javier"},
             {email:'javierne233@gmail.com'},
-            {password:'$2b$10$FTZ/fXFuv3ZbgEhpBo1AnemHXpUs3jqT7yiww2rlEcWLaruyHH0RO'}
+            {password:'$2b$10$VFiF5jmtfEWY4EmAZ7aLsevIvzFEYIpu4XmLlHhccp2ztb1ClPLPO'}//emma25 es este password
         ]
             }
     
