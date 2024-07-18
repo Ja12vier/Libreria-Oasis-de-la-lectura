@@ -1,6 +1,6 @@
 
 const catchError=require("../utils/catchError");
-const {books, authors, data_sheefs, images, genders,bookshops, books_bookshops  }=require("../models");
+const {books, authors, data_sheefs, images,comments, genders,bookshops, books_bookshops  }=require("../models");
 const { Op, where } = require("sequelize");
 
 
@@ -57,7 +57,8 @@ include:[
 { model: data_sheefs, where: whereData_sheefs},
 { model: images},
 { model: genders},
-{ model: bookshops}
+{ model: bookshops},
+{ model:comments}
 ]
 
 }
@@ -106,7 +107,8 @@ const book= await books.findByPk(id, {
         { model: authors},
         { model: data_sheefs},
         { model: images},
-        { model: genders}
+        { model: genders},
+        { model:comments}
           ]
 });
 

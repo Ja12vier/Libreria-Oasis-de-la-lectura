@@ -12,6 +12,7 @@ const books_bookshopRouter = require("./books_bookshops.routes");
 const shoppindsRouter = require("./shoppinds.routes");
 const loansRouter = require("./loans.routes");
 const paypalRouter = require("./paypal.routes");
+const commentsRouter = require("./comments.routes");
 const routes=express.Router();
 
 //ruta
@@ -27,5 +28,6 @@ routes.use("/books_bookshops", books_bookshopRouter)
 routes.use("/shoppinds", shoppindsRouter)
 routes.use("/loans", loansRouter)
 routes.use("/payment", paypalRouter)
+routes.use("/comments", commentsRouter)
 
 module.exports=routes

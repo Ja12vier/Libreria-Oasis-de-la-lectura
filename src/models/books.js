@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       books.hasMany(models.carts,  {foreignKey: "booksId"})
       books.hasMany(models.shoppinds,{foreignKey:"booksId"})
       books.hasMany(models.loans, {foreignKey:"bookId"})
+      books.hasMany(models.comments, {foreignKey:"bookId"})
     }
   }
   books.init({

@@ -10,16 +10,7 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-    await queryInterface.addColumn("books", "authorsId",{
-      type: Sequelize.INTEGER,
-      allowNull:false,
-      references:{
-        model:"authors",
-        key:"id"
-      },
-      onUpdate:"SET NULL",
-      onDelete:"CASCADE"
-    })
+    
     await queryInterface.changeColumn("authors", "descryption",{
       type: Sequelize.STRING,
       allowNull:false,
