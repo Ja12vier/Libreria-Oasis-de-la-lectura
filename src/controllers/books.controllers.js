@@ -108,7 +108,8 @@ const book= await books.findByPk(id, {
         { model: data_sheefs},
         { model: images},
         { model: genders},
-        { model:comments}
+        { model:comments},
+        { model: bookshops}
           ]
 });
 
